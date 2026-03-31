@@ -1,0 +1,6 @@
+# Ignore large media and outside folders
+My Work/
+*.mp4
+*.jpeg
+*.jpg
+*.png

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn more about Savana Oasis Property Ltd., our values, our story, and our commitment to elegant real estate experiences." />
+  <title>Savana Oasis Property Ltd. | About</title>
+
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+  />
+
+  <style>
+    :root {
+      --bg: #050505;
+      --panel: #111111;
+      --panel-soft: #191919;
+      --gold: #caa56a;
+      --gold-soft: #ead7b1;
+      --text: #f7f7f7;
+      --muted: #d0d0d0;
+      --border: rgba(202, 165, 106, 0.28);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(202, 165, 106, 0.12), transparent 30%),
+        var(--bg);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+      background: transparent;
+      z-index: 100;
+      transition: background-color 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    header.scrolled {
+      background-color: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    .logo {
+      font-size: 1.55rem;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 1px;
+      transition: color 0.3s ease;
+    }
+
+    header.scrolled .logo,
+    header.scrolled .menu-icon {
+      color: #111;
+    }
+
+    .menu-container {
+      position: relative;
+    }
+
+    .menu-icon {
+      cursor: pointer;
+      color: #fff;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      transition: color 0.3s ease;
+    }
+
+    .dropdown {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 50px;
+      right: 0;
+      background: rgba(0, 0, 0, 0.92);
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      min-width: 170px;
+      border: 1px solid var(--gold);
+      backdrop-filter: blur(6px);
+    }
+
+    .dropdown a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0.5rem 0;
+      position: relative;
+      padding-bottom: 3px;
+      transition: color 0.3s ease;
+    }
+
+    .dropdown a.active,
+    .dropdown a:hover {
+      color: var(--gold);
+    }
+
+    .dropdown.show {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .hero {
+      min-height: 72vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 20px 80px;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.72)),
+        url("../Live the dream in stunning overwater bungalows….jpg") center/cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 850px;
+      animation: fadeUp 0.9s ease forwards;
+    }
+
+    .page-badge,
+    .section-label {
+      display: inline-block;
+      color: var(--gold-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.85rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero h1,
+    .section-header h2,
+    .cta-card h2 {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      margin-bottom: 0.8rem;
+    }
+
+    .hero p,
+    .section-header p,
+    .story-copy p,
+    .promise-card p,
+    .timeline-card p,
+    .cta-card p {
+      color: var(--muted);
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 90px 20px;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 2.4rem;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .story-copy,
+    .stats-panel,
+    .promise-card,
+    .timeline-card,
+    .cta-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+    }
+
+    .story-copy h2,
+    .stats-panel h3,
+    .promise-card h3,
+    .timeline-card h3 {
+      color: var(--gold);
+      margin-bottom: 0.7rem;
+    }
+
+    .story-points {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-top: 1rem;
+    }
+
+    .story-points li {
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .story-points li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
+
+    .stats-panel {
+      display: grid;
+      gap: 12px;
+    }
+
+    .stat-item {
+      padding: 0.9rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .stat-item:last-child {
+      border-bottom: none;
+    }
+
+    .stat-number {
+      display: block;
+      font-size: 1.9rem;
+      color: var(--gold);
+      font-weight: bold;
+    }
+
+    .promise-grid,
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .timeline-card span {
+      display: inline-block;
+      color: var(--gold-soft);
+      margin-bottom: 0.4rem;
+      font-weight: bold;
+    }
+
+    .cta-wrap {
+      padding-top: 0;
+    }
+
+    .cta-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      background: linear-gradient(135deg, rgba(202, 165, 106, 0.18), rgba(17, 17, 17, 1));
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 0.9rem 1.4rem;
+      border-radius: 999px;
+      background: var(--gold);
+      color: #111;
+      font-weight: 700;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer {
+      background: #101010;
+      color: #ccc;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+    }
+
+    footer .social {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    footer .social a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 850px) {
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem 1.2rem;
+      }
+
+      .logo {
+        font-size: 1.1rem;
+        max-width: 70%;
+      }
+
+      .container {
+        padding: 70px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="navbar">
+    <div class="logo">Savana Oasis Property Ltd.</div>
+
+    <div class="menu-container">
+      <button class="menu-icon" id="menuIcon" aria-label="Toggle menu">
+        <span class="material-symbols-outlined" id="menuSymbol">menu</span>
+      </button>
+
+      <div class="dropdown" id="dropdownMenu">
+        <a href="welcome.html">WELCOME</a>
+        <a href="index.html">HOME</a>
+        <a href="vision.html">VISION</a>
+        <a href="about.html" class="active">ABOUT</a>
+        <a href="contact.html">CONTACT</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="page-badge">Who we are</span>
+      <h1>Real estate built on trust, elegance, and lasting value.</h1>
+      <p>
+        Savana Oasis Property Ltd. exists to present beautiful homes and promising property opportunities
+        with clarity, confidence, and a premium client experience.
+      </p>
+    </div>
+  </section>
+
+  <main>
+    <section class="container">
+      <div class="story-grid">
+        <article class="story-copy reveal">
+          <span class="section-label">Our Story</span>
+          <h2>A thoughtful approach to modern property living</h2>
+          <p>
+            We are more than a real estate brand. We help people discover spaces that reflect their ambitions,
+            support their lifestyle, and preserve long-term value.
+          </p>
+          <p>
+            Every property we present is chosen with care—balancing location, quality, comfort, and future potential.
+          </p>
+          <ul class="story-points">
+            <li>We focus on quality presentation and honest guidance.</li>
+            <li>We help buyers, families, and investors make informed decisions.</li>
+            <li>We believe premium service should feel smooth and personal.</li>
+          </ul>
+        </article>
+
+        <aside class="stats-panel reveal">
+          <h3>At a Glance</h3>
+          <div class="stat-item">
+            <span class="stat-number">15+</span>
+            <p>Years of market insight and client-focused service.</p>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">120+</span>
+            <p>Curated listings across luxury, family, and investment categories.</p>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">98%</span>
+            <p>Client satisfaction through consistency, trust, and follow-through.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="section-header reveal">
+        <span class="section-label">What We Stand For</span>
+        <h2>The principles behind every client experience</h2>
+        <p>Our work is shaped by professionalism, beautiful presentation, and a genuine commitment to value.</p>
+      </div>
+
+      <div class="promise-grid">
+        <article class="promise-card reveal">
+          <h3>Integrity First</h3>
+          <p>We communicate clearly, advise honestly, and keep your goals at the center of every step.</p>
+        </article>
+        <article class="promise-card reveal">
+          <h3>Quality Selection</h3>
+          <p>We highlight properties with standout design, livability, and strong long-term appeal.</p>
+        </article>
+        <article class="promise-card reveal">
+          <h3>Client Confidence</h3>
+          <p>We make the process easier to understand so that your decisions feel calm and informed.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Milestones</span>
+        <h2>A growing standard of excellence</h2>
+      </div>
+
+      <div class="timeline-grid">
+        <article class="timeline-card reveal">
+          <span>2010</span>
+          <h3>Foundation</h3>
+          <p>We began with a simple purpose: connect people to better property opportunities.</p>
+        </article>
+        <article class="timeline-card reveal">
+          <span>2018</span>
+          <h3>Expansion</h3>
+          <p>Our portfolio and network grew to include more premium and investment-focused listings.</p>
+        </article>
+        <article class="timeline-card reveal">
+          <span>Today</span>
+          <h3>Trusted Service</h3>
+          <p>We continue refining a luxury experience built on professionalism and lasting relationships.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="container cta-wrap">
+      <div class="cta-card reveal">
+        <div>
+          <span class="section-label">Ready to connect?</span>
+          <h2>Let’s help you take the next confident step.</h2>
+          <p>Whether you are buying, investing, or simply exploring, we are here to guide you.</p>
+        </div>
+        <a href="contact.html" class="btn">Contact Us</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Savana Oasis Property Ltd. | Luxury homes, trusted guidance, lasting value.</p>
+    <div class="social">
+      <a href="#" aria-label="Facebook">Facebook</a>
+      <a href="#" aria-label="WhatsApp">WhatsApp</a>
+      <a href="#" aria-label="X (Twitter)">X</a>
+    </div>
+  </footer>
+
+  <script>
+    const menuIcon = document.getElementById("menuIcon");
+    const menuSymbol = document.getElementById("menuSymbol");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+    const header = document.getElementById("navbar");
+    const revealItems = document.querySelectorAll(".reveal");
+
+    menuIcon.addEventListener("click", (event) => {
+      event.stopPropagation();
+      dropdownMenu.classList.toggle("show");
+      menuSymbol.textContent = dropdownMenu.classList.contains("show") ? "close" : "menu";
+    });
+
+    window.addEventListener("click", (event) => {
+      if (!menuIcon.contains(event.target) && !dropdownMenu.contains(event.target)) {
+        dropdownMenu.classList.remove("show");
+        menuSymbol.textContent = "menu";
+      }
+    });
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) header.classList.add("scrolled");
+      else header.classList.remove("scrolled");
+    });
+
+    function revealOnScroll() {
+      const trigger = window.innerHeight * 0.88;
+      revealItems.forEach((item) => {
+        if (item.getBoundingClientRect().top < trigger) {
+          item.classList.add("visible");
+        }
+      });
+    }
+
+    window.addEventListener("load", revealOnScroll);
+    window.addEventListener("scroll", revealOnScroll);
+  </script>
+</body>
+</html>
+
