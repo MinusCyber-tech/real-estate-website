@@ -5,3 +5,4 @@ publish = "."
 from = "/"
 to = "/welcome.html"
 status = 200
+force = true
